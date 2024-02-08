@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
-
+ 
 def home(request):
     image_diff = image_groups()
     image_diff.macro_name = 'Macro'
@@ -81,8 +81,6 @@ def Login(request):
     return render(request, 'Login.html')
 
 # Login request:
-
-
 def Logout(request):
     logout(request)
     return render(request, 'Login.html')
