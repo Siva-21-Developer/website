@@ -1,0 +1,36 @@
+*
+{
+margin:0;
+padding:0;
+}
+
+.topnav {
+  display:flex;
+  align-item:center;
+  justify-content:center;
+  overflow: hidden;
+  height:100px;
+  background-color:transparent;
+  z-index:20;
+  }
+
+.topnav a {
+  display:flex;
+  flex-warp:warp;
+  align-items:center;
+  color: black;
+  padding: 18px 86px;
+  text-decoration: none;
+  font-size: 25px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+  transition: 0.5s ease-in-out;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}

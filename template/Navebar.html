@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title> Website</title>
+    {% block content %}
+    {% load static %}
+
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+          integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        html {
+  scroll-behavior: smooth;
+}
+*
+{
+margin:0;
+padding:0;
+
+}
+
+.topnav {
+overflow: hidden;
+  background-color:transparent;
+  text-align:center;
+  display:flex;
+align-item:center;
+justify-content:center;
+  }
+
+.topnav a {
+  color: black;
+  text-decoration: none;
+  padding: 14px 40px;
+  font-size: 20px;
+  font-size: 25px;
+}
+
+.topnav a:hover {
+            background-color: white;
+            transition: 0.5s ease-in-out;
+            border-radius: 5px;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+body {
+background-image:url("{% static 'images/5.jpg' %}");
+background-size:cover;
+background-repeat:no-repeat;
+background-attachment:fixed;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+body::before
+{
+content:'';
+position:absolute;
+width:20px;
+left:50px;
+height:100%;
+background-color:white;
+z-index:-10;
+}
+body::after
+{
+content:'';
+position:absolute;
+width:20px;
+left:100px;
+top:300px;
+height:100%;
+background-color:white;
+z-index:-10;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+        .topnav .icon
+        {
+            display: none;
+        }
+
+        @media screen and (max-width:600px) {
+            .topnav a:not(:first-child){display: none;}
+            .topnav a.icon{
+                position:absolute;
+                right:0;
+                display: block;
+            }
+        }
+
+        @media screen and (max-width:600px) {
+
+            .topnav.responsive {position: relative;}
+            topnav.responsive .icon
+            {
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+
+            .topnav.responsive a
+            {
+                float: none;
+                  padding: 14px 20px;
+                display: block;
+                text-align: left;
+            }
+
+        }
+
+
+    </style>
+</head>
+<body>
+<!--<div class="topnav" id="myTopnav">-->
+<!--    <a href="{% url 'Home' %}">HOME</a>-->
+<!--    <a href="{% url 'Login' %}">UPLOAD</a>-->
+<!--    <a href="{% url 'Images' %}">IMAGES</a>-->
+<!--    <a href="javascript:void(0)" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>-->
+<!--</div>-->
+
+
+    <script>
+
+        function myFunction()
+        {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav")
+            {
+                x.className += " responsive";
+            }
+            else
+            {
+                x.className = "topnav";
+            }
+        }
+
+
+    </script>
+
+
+</body>
+
+{% endblock %}
+</html>

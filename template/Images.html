@@ -1,0 +1,57 @@
+{% extends 'Merge.html' %}
+{% block content %}
+{% load static %}
+<style>
+
+
+
+        .containers
+        {
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ flex-wrap: wrap;
+ padding: 60px 0;
+ gap: 100px;
+             }
+<!--img-->
+<!--{-->
+<!--border-radius:20px;-->
+<!--box-shadow:  20px 20px 0px #5a5a5a;-->
+
+<!--}-->
+.card:hover
+{
+transition: 0.5s linear;
+transform: scale(1.1);
+}
+
+center h1
+{
+font-size:50px;
+}
+a
+{
+text-decoration:none;
+}
+
+</style>
+<br>
+<center><h1>GALLERY</h1></center>
+<center><h2 style=" padding:20px;">{{ name }}</h2></center>
+    <div class="containers animate__animated  animate__delay-1.5s animate__slideInUp" >
+        {% for image in images %}
+<div class="card" style="width: 15rem; height:23rem; padding:5px;">
+  <img class="card-img-top" src="{{image.Image.url}}" alt="Card image cap" style="height:18rem;">
+  <div class="card-body">
+    <a href="{{image.Image.url}}" class="btn btn-primary">Show</a>
+  </div>
+</div>
+    <!--        <a href="{{image.Image.url}}">-->
+    <!--            <img src="{{image.Image.url}}"  width="300px" height="450px">-->
+    <!--            </a>-->
+        {% endfor %}
+
+    </div>
+
+{% endblock %}

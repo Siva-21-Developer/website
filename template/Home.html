@@ -1,0 +1,516 @@
+{% extends 'Merge.html' %}
+{% block content %}
+{% load static %}
+
+<style>
+
+        .title-block
+        {
+        position:relative;
+        display:flex;
+        flex-warp:warp;
+        width:100%;
+        height:100vh;
+        overflow:hidden;
+        }
+        
+        
+        .title-block .head
+        {
+            position:absolute;
+            font-size:70px;
+            top:6cm;
+            left:4cm;
+            width:70%;
+            color:white;
+            font-weight: bold;
+            text-transform:uppercase;
+            font-family: 'Poppins', sans-serif;
+                    }
+        
+        .title-block h3
+        {
+            position:absolute;
+            width:70%;
+            font-size:30px;
+            color:white;
+            font-family: 'Poppins', sans-serif;
+
+        }
+
+        .title-block #forest
+        {
+        position:absolute;
+        bottom:-20cm;
+        z-index:-100;
+        }
+
+      .title-block #rocks
+        {
+        position:absolute;
+        bottom:-15cm;
+        right:0;
+        z-index:-50;
+        }
+
+       .title-block #man
+       {
+       position:absolute;
+       bottom:0;
+       right:3cm;
+       }
+
+        .image-block{
+            overflow: hidden;
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+
+
+
+<!--        .image-block::before-->
+<!--        {-->
+<!--            content: '';-->
+<!--            position: absolute;-->
+<!--            width: 50px;-->
+<!--            height: 2000px;-->
+<!--            background-color: rgb(255, 255, 255);-->
+<!--            left: 400px;-->
+<!--            z-index: -1;-->
+<!--            transform: rotate(30deg);-->
+<!--        }-->
+<!--        .image-block::after-->
+<!--        {-->
+<!--            content: '';-->
+<!--            position: absolute;-->
+<!--            width: 50px;-->
+<!--            height: 2000px;-->
+<!--            background-color: rgb(255, 255, 255);-->
+<!--            bottom: 100px;-->
+<!--            left: 700px;-->
+<!--            z-index: -1;-->
+<!--            transform: rotate(30deg);-->
+<!--        }-->
+
+     .image-container
+        {
+            position: relative;
+            min-height:50%;
+            width: 80%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap;
+            border-radius: 20px;
+            background:rgba(255, 255, 255, 0.1);
+            box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+            border-left: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+
+        .image
+        {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            overflow: hidden;
+            border-radius: 20px;
+            margin: 20px;
+            box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+            border-left: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .image:hover
+        {
+            transform: translateZ(50px,50px);
+            width: 300px;
+             -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
+        }
+
+        .image::after
+        {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 500px;
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: skew(35deg);
+            left: 450%;
+        }
+
+        .image:hover::after
+        {
+            left: -300%;
+            transition: 1s;
+        }
+
+
+        @media screen and (max-width:600px) {
+
+            .title-block .head
+            {
+            font-size:50px;
+            }
+
+            .image-block
+            {
+                height: 100%;
+                padding: 20px;
+            }
+
+            .image-container
+            {
+                width: 400px;
+                flex-wrap: wrap;
+            }
+
+            .image-container .image
+            {
+                position: relative;
+                height: 200px;
+                width: 100%;
+            }
+        }
+ .icon-contain
+        {
+            position: relative;
+            width: 300px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            top:15cm;
+            left:3cm;
+                    }
+
+        button
+        {
+            font-size:30px;
+            width:200px;
+            height:50px;
+            background: none;
+            border: none;
+            color:white;
+            border-radius: 5px;
+            margin: 0px 20px;
+        }
+
+        button:hover
+        {
+            background-color: black;
+        }
+
+        .hidden { display: none; }
+      .visible { display: block; }
+
+.copy
+{
+position:absolute;
+top:50%;
+left:50%;
+width:200px;
+height:200px;
+overflow:hidden;
+transform:translate(150%,-50%);
+}
+
+    .contents-text{
+    position:absolute;
+    top:25px;
+    margin-left:2400px;
+    font-weight: bold;
+    font-size:100px;
+    font-family: 'Poppins', sans-serif;
+    z-index:200;
+    color:black
+    }
+.contents-text1
+    {
+    position:absolute;
+    bottom:0;
+    margin-right:3400px;
+    color:black;
+    font-family: 'Poppins', sans-serif;
+    font-weight:bold;
+    font-size:100px;
+    z-index: 100;
+    }
+
+.flex-container {
+
+  height: 100vh;
+  width: 100%;
+  display: -webkit-flex;
+  /* Safari */
+  display: flex;
+  overflow: hidden;
+}
+@media screen and (max-width: 768px) {
+  .flex-container {
+    flex-direction: column;
+  }
+}
+
+.flex-title {
+  color: #f1f1f1;
+  position: relative;
+  font-size: 6vw;
+  margin: auto;
+  text-align: center;
+  transform: rotate(90deg);
+  top: 15%;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+@media screen and (max-width: 768px) {
+  .flex-title {
+    transform: rotate(0deg) !important;
+  }
+}
+
+
+
+.flex-slide {
+  -webkit-flex: 1;
+  /* Safari 6.1+ */
+  -ms-flex: 1;
+  /* IE 10 */
+  flex: 1;
+  cursor: pointer;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+@media screen and (max-width: 768px) {
+  .flex-slide {
+    overflow: auto;
+    overflow-x: hidden;
+  }
+}
+
+.flex-slide:hover  {
+  -webkit-flex-grow: 3;
+  flex-grow: 3;
+}
+
+.flex-slide:hover .flex-title {
+  transform: rotate(0deg);
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
+
+.home {
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(http://127.0.0.1:8000/upload/IMG_20210830_065429_978.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position:  center;
+  background-attachment: fixed;
+}
+
+.about {
+ 
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(http://127.0.0.1:8000/upload/IMG_20210503_181710.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+
+
+.contact {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(http://127.0.0.1:8000/upload/IMG_20211105_085958.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+.work {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(http://127.0.0.1:8000/upload/1625149737903.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+    .footer
+    {
+    overflow:hidden;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    height:300px;
+    background-color:transparent;
+    }
+
+    .footer-cont1
+    {
+    position:absolute;
+    width:50%;
+    height:100%;
+    background-color:rgba(255,255,255,0.3);
+    border:2px solid;
+    border-color:rgba(255,255,255,0.6);
+    transform: skewX(30deg);
+    left:-130px;
+    }
+        .footer-cont2
+    {
+    position:absolute;
+    width:50%;
+    height:100%;
+    background-color:rgba(255,255,255,0.0);
+    border:2px solid;
+    border-color:rgba(255,255,255,0.6);
+    transform: skewX(30deg);
+    right:-170px;
+    }
+.footer-image
+    {
+    position:absolute;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:200px;
+    height:200px;
+    background-color:white;
+    border-radius:100%;
+    overflow:hidden;
+    }
+
+
+</style>
+
+<div>
+<div class="title-block">
+    <div>
+        <div class="head animate__animated  animate__delay-0.5s animate__bounceInDown">Mobile Photography
+            <h3 class="animate__animated  animate__delay-0.5s animate__bounceInDown" >If you can see it, <br>you can shoot it ...</h3></div>
+          <div class="icon-contain">
+        <button onmouseover=display(1) onmouseleave="hidedata()"><i class="fa fa-instagram" ></i></button>
+        <button onmouseover="display(2)" onmouseleave="hidedata()"><i class="fa fa-facebook" ></i></button>
+        <button onmouseover="display(3)" onmouseleave="hidedata()"><i class="fa fa-whatsapp" ></i></button>
+    </div>
+            <div id="copy" class="copy">
+        <img src="" alt="" srcset="" id="image_field" style="background-color:black; border-radius:20px; opacity:0.8;  " width="180px" height="180px" class="hidden">
+    </div>
+<img src="https://user-images.githubusercontent.com/65358991/170092559-883fe071-eb4f-4610-8c8b-a037d061c617.png" id="forest">
+        <img src="https://user-images.githubusercontent.com/65358991/170092605-eada6510-d556-45cc-b7fa-9e4d1d258d26.png" id="rocks">
+         <img src="{% static 'images/photo.png' %}" alt="" srcset="" width="200" height="200" id="man">
+    </div>
+</div>
+ <div class="image-block">
+     <h1 class="contents-text" id="text">PHOTOGRAPHY</h1>
+     <h1 class="contents-text1" id="text1">COLLECTIONS</h1>
+        <div class="image-container">
+            {% for image in images %}
+        <div class="image">
+        <img src="{{image.Image.url}}" width="400" height="500">
+        </div>
+            {% endfor %}
+        </div>
+    </div>
+<div class="flex-container">
+	<div class="flex-slide home">
+		<a href="image/{{image_diff.macro_name}}" style="text-decoration: none;"><div class="flex-title flex-title-home" >{{image_diff.macro_name}}</div></a>
+	</div>
+	<div class="flex-slide about">
+	<a href="image/{{image_diff.sky_name}}" style="  text-decoration: none;">	<div class="flex-title">{{image_diff.sky_name}}</div></a>
+
+	</div>
+	<div class="flex-slide work">
+	<a href="image/{{image_diff.light_name}}" style="  text-decoration: none;">	<div class="flex-title">{{image_diff.light_name}}</div></a>
+
+	</div>
+	<div class="flex-slide contact">
+	<a href="image/{{image_diff.thunder_name}}" style="  text-decoration: none;">	<div class="flex-title">{{image_diff.thunder_name}}</div></a>
+
+	</div>
+</div>
+
+<div class="footer">
+    <div class="footer-cont1">
+    </div>
+        <div class="footer-cont2">
+    </div>
+    <div class="footer-image">
+        <img src="{% static 'images/2.jpeg' %}" alt="" srcset="" width="200" height="200" style="border-radius:100px;">
+    </div>
+</div>
+    </div>z
+<script>
+    let data = document.getElementById('copy');
+    let contain = document.getElementById('image_field');
+    var pic = '{% static 'images/facebook.png' %}'
+    var pic_2 = '{% static 'images/instagram.png' %}'
+    var pic_3 = '{% static 'images/whatsup.png' %}'
+    function display(image)
+    {
+        if(image == 1){
+        let data_image = document.getElementById("image_field").src = pic_2;
+        // data.classList.toggle("visible");
+        contain.className = 'visible';
+    }
+    else if(image == 2){
+        let data_image = document.getElementById("image_field").src = pic;
+        // data.classList.toggle("visible");
+        contain.className = 'visible';
+    }
+    else if(image == 3){
+        let data_image = document.getElementById("image_field").src = pic_3;
+        // data.classList.toggle("visible");
+        contain.className = 'visible';
+    }
+
+}
+  const text = document.getElementById('text');
+  const text1 = document.getElementById('text1');
+  const forest = document.getElementById('forest');
+  const rocks= document.getElementById('rocks');
+  const man = document.getElementById('man');
+
+    window.addEventListener('scroll', function(){
+        let value = window.scrollY;
+        if(value >= 811)
+        {
+          text1.style.marginLeft=value*3.7+'px';
+        }
+        else if(value <=811){
+        //text1.style.marginLeft=value*3.7+'px';
+        text.style.marginRight = value*3.5+'px';
+        man.style.marginBottom = value*0.1+'px';
+        forest.style.marginBottom = value*0.2+'px';
+        rocks.style.marginBottom = value*0.1+'px';
+        }
+    console.log(value);
+    });
+
+    function hidedata()
+    {
+        contain.className = 'hidden';
+    }
+</script>
+
+{% endblock %}

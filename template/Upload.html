@@ -1,0 +1,74 @@
+{% extends 'Merge.html' %}
+
+{% block content %}
+{% load static %}
+<style>
+
+
+
+    form
+    {
+        overflow: hidden;
+              background-color: white;
+              padding: 40px 30px 30px 30px;
+              border-radius: 10px;
+              position: relative;
+              top: 50%;
+              left: 50%;
+              width: 400px;
+              transform: translate(-50%, 1%);
+              transition: transform 300ms, box-shadow 300ms;
+               box-shadow: 5px 10px 10px rgba(2, 128, 144, 0.2);
+       }
+
+</style>
+<center><h1>UPLOAD IMAGES</h1></center>
+
+<form action="{% url 'Uploads' %}" method="post" enctype="multipart/form-data" class="">
+{% csrf_token %}
+  <div class="form-group head " style="width:300px; ">
+    <label>File Name</label>
+{{form.Form_name}}
+  </div>
+  <div class="form-group" style="width:300px; ">
+    <label>File Name</label>
+    {{form.Form_image}}
+  </div>
+    <input type="submit" value="UPLOAD" class="btn btn-primary" style="width:150px">
+</form>
+
+
+<br><br><br>
+<div style="width:100%; display:flex; justify-content:center;">
+<div style="width:800px; height:400px;overflow: auto; padding:10px;background-color:white; border-radius:20px;">
+<table class="table" style="text-align: center;">
+  <thead>
+    <tr >
+      <th style="text-align: center;" scope="col">Image</th>
+      <th style="text-align: center;" scope="col">Edit</th>
+      <th><a style="color: white; text-decoration: none;" class="btn btn-danger" href="{% url 'Logout' %}">Logout</a> </th>
+    </tr>
+  </thead>
+{% for image in images %}
+
+  <tbody>
+    <tr>
+      <td>{{forloop.counter}}</td>
+      <td><a style="color: white; text-decoration: none; width: 300px; " class="btn btn-primary" href="{{image.Image.url}}">{{image.Image}}</a></td>
+      <td><a style="color: white; text-decoration: none;" class="btn btn-danger" href="deleteFile/{{image.id}}">Delete</a></td>
+    </tr>
+
+{% endfor %}
+
+  </tbody>
+</table>
+</div>
+</div>
+{% endblock %}
+
+
+
+
+
+<!--{{form.Form_name}}-->
+<!--    {{form.Form_image}}-->
