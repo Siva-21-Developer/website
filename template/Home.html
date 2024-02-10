@@ -72,29 +72,7 @@
 
 
 
-<!--        .image-block::before-->
-<!--        {-->
-<!--            content: '';-->
-<!--            position: absolute;-->
-<!--            width: 50px;-->
-<!--            height: 2000px;-->
-<!--            background-color: rgb(255, 255, 255);-->
-<!--            left: 400px;-->
-<!--            z-index: -1;-->
-<!--            transform: rotate(30deg);-->
-<!--        }-->
-<!--        .image-block::after-->
-<!--        {-->
-<!--            content: '';-->
-<!--            position: absolute;-->
-<!--            width: 50px;-->
-<!--            height: 2000px;-->
-<!--            background-color: rgb(255, 255, 255);-->
-<!--            bottom: 100px;-->
-<!--            left: 700px;-->
-<!--            z-index: -1;-->
-<!--            transform: rotate(30deg);-->
-<!--        }-->
+
 
      .image-container
         {
@@ -353,6 +331,120 @@ transform:translate(150%,-50%);
   background-position: center center;
   background-attachment: fixed;
 }
+
+
+
+.galary
+{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.poly
+{
+   
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 700px;
+    height: 600px;
+    text-decoration: none;
+    clip-path: polygon(25% 0%,100% 0%,75% 100%,0% 100%);
+    transition: 0.4s ease;
+}
+.poly:nth-child(1)
+{
+  background-image:url("{% static 'images/mc.webp' %}");
+  background-size: cover;
+  margin-top: 150px;
+
+}
+.poly:nth-child(2)
+{
+  background-image:url("{% static 'images/sk.jpg' %}");
+  background-size: cover;
+  margin-bottom: 150px;
+
+}
+.poly:nth-child(3)
+{
+  background-image:url("{% static 'images/li.jpg' %}");
+  background-size: cover;
+  margin-top: 150px;
+
+}
+
+.poly:nth-child(4)
+{
+  background-image:url("{% static 'images/in.jpg' %}");
+  background-size: cover;
+  margin-bottom: 150px;
+
+}
+
+
+.poly:hover
+{
+    transform: scale(1.2);
+}
+
+.poly a
+{
+    color: white;
+    font-weight: 600;
+    font-size: 1.2em;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width:850px) 
+{
+    .galary
+    {
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+
+    .poly
+    {
+        width: 700px;
+        height: 600px;
+        background-color: rgb(249, 235, 37);
+        clip-path: inset(5% 0 15% round 0 20% 0 20%);
+        transition: 0.4s ease;
+    }
+    
+    .poly:nth-child(1) , .poly:nth-child(3)
+    {
+        margin-top: 0px;
+    }
+
+    .poly:nth-child(2), .poly:nth-child(4)
+    {
+        margin-bottom: 0px;
+    }
+
+}
+
+
+
+
     .footer
     {
     overflow:hidden;
@@ -432,23 +524,17 @@ transform:translate(150%,-50%);
             {% endfor %}
         </div>
     </div>
-<div class="flex-container">
-	<div class="flex-slide home">
-		<a href="image/{{image_diff.macro_name}}" style="text-decoration: none;"><div class="flex-title flex-title-home" >{{image_diff.macro_name}}</div></a>
-	</div>
-	<div class="flex-slide about">
-	<a href="image/{{image_diff.sky_name}}" style="  text-decoration: none;">	<div class="flex-title">{{image_diff.sky_name}}</div></a>
 
-	</div>
-	<div class="flex-slide work">
-	<a href="image/{{image_diff.light_name}}" style="  text-decoration: none;">	<div class="flex-title">{{image_diff.light_name}}</div></a>
 
-	</div>
-	<div class="flex-slide contact">
-	<a href="image/{{image_diff.thunder_name}}" style="  text-decoration: none;">	<div class="flex-title">{{image_diff.thunder_name}}</div></a>
 
-	</div>
+<div class="galary">
+  <div class="poly"><a href="image/{{image_diff.macro_name}}"><h1>{{image_diff.macro_name}}</h1></a></div>
+  <div class="poly"><a href="image/{{image_diff.sky_name}}"><h1>{{image_diff.sky_name}}</h1></a></div>
+  <div class="poly"><a href="image/{{image_diff.light_name}}"><h1>{{image_diff.light_name}}</h1></a></div>
+  <div class="poly"><a href="image/{{image_diff.thunder_name}}"><h1>{{image_diff.thunder_name}}</h1></a></div>        
 </div>
+
+
 
 <div class="footer">
     <div class="footer-cont1">
@@ -463,9 +549,9 @@ transform:translate(150%,-50%);
 <script>
     let data = document.getElementById('copy');
     let contain = document.getElementById('image_field');
-    var pic = '{% static 'images/facebook.png' %}'
-    var pic_2 = '{% static 'images/instagram.png' %}'
-    var pic_3 = '{% static 'images/whatsup.png' %}'
+    var pic = "{% static 'images/facebook.png' %}"
+    var pic_2 = "{% static 'images/instagram.png' %}"
+    var pic_3 = "{% static 'images/whatsup.png' %}"
     function display(image)
     {
         if(image == 1){

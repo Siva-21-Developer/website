@@ -315,3 +315,61 @@ css code for mobile contents
 #     Img_obj = Image_upload.objects.all()
 #     contents = {'images': Img_obj}
 #     return render(request, 'Gallary.html', contents)
+
+
+
+<!--        .image-block::before-->
+<!--        {-->
+<!--            content: '';-->
+<!--            position: absolute;-->
+<!--            width: 50px;-->
+<!--            height: 2000px;-->
+<!--            background-color: rgb(255, 255, 255);-->
+<!--            left: 400px;-->
+<!--            z-index: -1;-->
+<!--            transform: rotate(30deg);-->
+<!--        }-->
+<!--        .image-block::after-->
+<!--        {-->
+<!--            content: '';-->
+<!--            position: absolute;-->
+<!--            width: 50px;-->
+<!--            height: 2000px;-->
+<!--            background-color: rgb(255, 255, 255);-->
+<!--            bottom: 100px;-->
+<!--            left: 700px;-->
+<!--            z-index: -1;-->
+<!--            transform: rotate(30deg);-->
+<!--        }-->
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////design  ////////////////////////
+
+
+
+<div class="flex-container">
+	<div class="flex-slide home">
+		<a href="image/{{image_diff.macro_name}}" style="text-decoration: none;"><div class="flex-title flex-title-home" >{{image_diff.macro_name}}</div></a>
+	</div>
+	<div class="flex-slide about">
+	<a href="image/{{image_diff.sky_name}}" style="  text-decoration: none;">	<div class="flex-title">{{image_diff.sky_name}}</div></a>
+
+	</div>
+	<div class="flex-slide work">
+	<a href="image/{{image_diff.light_name}}" style="  text-decoration: none;">	<div class="flex-title">{{image_diff.light_name}}</div></a>
+
+	</div>
+	<div class="flex-slide contact">
+	<a href="image/{{image_diff.thunder_name}}" style="  text-decoration: none;">	<div class="flex-title">{{image_diff.thunder_name}}</div></a>
+
+	</div>
+</div>
